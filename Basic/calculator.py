@@ -59,10 +59,10 @@ def calculation(operand):
     return calculation(operand)
   else:    
       clear() # clear the screen
-      return # return to the main screen, parent function, which is calculator()
+      return # return to the main screen, parent function calculator()
 
 
-# Main function calculates two values
+# Main function Calculator
 def calculator(): 
   while True:  
     operation = input("***Calculator options***\n[+] Additions\n[-] Substraction\n[*] Multiplication\n[/] Division\n[%] Modulo\n[**]Exponentiation\n\n[x] to exit\n\n")
