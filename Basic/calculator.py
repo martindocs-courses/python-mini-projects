@@ -1,51 +1,89 @@
 import sys
+from enum import Enum 
 
-def add():
-  value1 = input("Enter the first value")
-  value2 = input("Enter the second value")  
+# Set of symbolic names bound to unique values
+class OPERANDS(Enum):
+  ADDITION = "+"
+  SUBSTRACTION = "-"
+  MULTIPLICATION = "*"
+  DIVISION = "/"
+  MODULO = "%"
+  EXPONENTIATION = "**"
 
-def subtract(num1, num2):
-  pass
+# Function to clear the screen
+'''
+  end="" - not append a newline character at the end of the output, by default it does
+  flush=True - ensures that the screen clear command is executed right away
+'''
+clear = lambda : print("\033c", end="", flush=True)
 
-def divide(num1, num2):
-  pass
+# Function to calculate two values
+def calculation(operand):
+  num1 = input("\nEnter the first value: ")
+  num2 = input("Enter the second value: ")  
 
-def multiply(num1, num2):
-  pass
+  '''
+    The isdigit() returns True only if all characters in the string are digits else returns false if any alphabet or any special character exists in the string.
+  '''
+  if not num1.isdigit() or not num2.isdigit():
+    print("\nBoth values need to be numbers\n")
+    return calculation(operand)
 
-def modulo(num1, num2):
-  pass
+  result = 0
+  # Switch in Python, no need for break
+  match operand:
+    case "+":
+      result = int(num1) + int(num2)      
+    case "-":
+      result = int(num1) - int(num2)      
+    case "*":
+      result = int(num1) * int(num2)      
+    case "/":
+      result = int(num1) / int(num2)      
+    case "%":
+      result = int(num1) % int(num2)      
+    case "**":
+      result = int(num1) ** int(num2)      
+    
+  print(f"{num1} {operand} {num2} = {result}\n")
+
+  while True:  
+    play_again = input(f"Do you want to continue {OPERANDS(operand).name}?\n[Y] Yes\n[N] No\n")
+
+    if play_again.lower() not in ["y", "n"]:
+      continue 
+    else:
+      break
+  
+  if play_again.lower() == "y":
+    return calculation(operand)
+  else:    
+      clear() # clear the screen
+      return # return to the main screen, parent function, which is calculator()
 
 
-def calculator():
-  options = True
+# Main function calculates two values
+def calculator(): 
+  while True:  
+    operation = input("***Calculator options***\n[+] Additions\n[-] Substraction\n[*] Multiplication\n[/] Division\n[%] Modulo\n[**]Exponentiation\n\n[x] to exit\n\n")
 
-  while options:  
-    operation = input("***Choose your option***\n[+] Additions\n[-] Substraction\n[*] Multiplication\n[/] Division\n[%] Modulo\n\n[x] to exit the Calculator")
-
-    if operation not in ['+', '-', '*', '/', '%']:
-      print("\nYou must provide a valid operation\n")
+    if operation not in ['+', '-', '*', '/', '%', '**', 'x']:
+      print("\nYou must provide a valid operand\n")
       return calculator()    
 
     if operation == '+':
-      add()
+      calculation("+")
     elif operation == '-':
-      pass
+      calculation("-")      
     elif operation == '*':
-      pass
+      calculation("*")            
     elif operation == '/':
-      pass
+      calculation("/")                  
     elif operation == '%':
-      pass
+      calculation("%")                        
+    elif operation == '**':
+      calculation("**")                        
     else:
-      sys.exit()
+      sys.exit("Bye! 👋")
 
-if __name__ == "__main__":
-  calculator()
-
-'''
-  - user choosing operation, addition, subtraction, multiplication form the list etc.
-  - user input values and check for validity
-  - return opartin value
-
-'''
+calculator()
