@@ -6,18 +6,26 @@ This repository serves as a learning tool for my journey with Python. The projec
 
 ## Folder Structure
 
-The repository is organized into the following folders:
+The repository is organized into the following top-level folders:
 
-- **Basic**: Contains introductory projects for beginners.
-- **Intermediate**: Contains projects that require a moderate level of Python knowledge.
-- **Advanced**: Contains more complex projects that are suitable for advanced users.
-- **WebApp**: Contains projects related to web applications.
+- **Terminal**: Projects that run in the command line interface (CLI) and include basic scripts and tools.
+- **Automation**: Projects focused on automating repetitive tasks and processes.
+- **DataProcessing**: Projects dealing with data manipulation, analysis, and visualization.
+- **Games**: Simple to complex games created using Python.
+- **WebApp**: Projects related to web development, including web applications and APIs.
+- **MobileApp**: Projects for mobile application development using frameworks like Kivy or BeeWare.
+
+Each of these categories contains subfolders for different levels of complexity:
+
+- **Basic**: Introductory projects for beginners.
+- **Intermediate**: Projects that require a moderate level of Python knowledge.
+- **Advanced**: More complex projects that are suitable for advanced users.
 
 ## Projects
 
-### Basic
+### Terminal/Basic
 
-- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/Basic/calculator.py): Terminal-based, simple calculator that performs basic arithmetic operations.
+- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/calculator.py): Terminal-based, simple calculator that performs basic arithmetic operations.
 
 ## Prerequisites
 
@@ -32,17 +40,14 @@ The repository is organized into the following folders:
    ```
 2. Navigate to the desired folder:
    ```bash
-   cd Basic  # For basic projects
+   cd Terminal/Basic  # For basic projects
    # or
-   cd Intermediate  # For intermediate projects
-   # or
-   cd Advanced  # For advanced projects
-   # or
-   cd WebApp  # For web application projects
+   cd WebApp/Intermediate  # For intermediate web application projects
+   # and so on...
    ```
 3. Run the project:
    ```bash
-   python Basic/calculator.py  # Example for running the calculator project in the Basic folder
+   python calculator.py  # Example for running the calculator project in the Basic folder
    ```
 
 ## Contributions
