@@ -25,7 +25,8 @@ Each of these categories contains subfolders for different levels of complexity:
 
 ### Terminal/Basic
 
-- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/calculator.py): Terminal-based, simple calculator that performs basic arithmetic operations with session log history.
+- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/calculator.py): Calculator that performs basic arithmetic operations with session log history.
+- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/password-generator.py): Password generator with Strength Meter.
 
 ## Prerequisites
 
