@@ -39,8 +39,23 @@ def get_images_directory():
 def get_directory():
   pass
 
-def extract_image_data(image):
-  pass
+def extract_image_data(img):
+  try:
+    image = Image.open(img)
+    data = image._getexif() # get the image metadata
+    if data:
+      date = data.get(36867) # DateTimeOriginal
+
+      if not date:
+        date = data.get(306)  # DateTime
+      
+      if date:
+        return date.split(' ')[0].replace(':', '-')
+    
+    return None
+  except Exception as error:
+    print(f"Error no metadata found in {img}: {error}")
+    return None
 
 def organize_files(directory):
   # generate the file names in a directory tree by walking the tree either top-down or bottom-up
