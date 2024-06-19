@@ -52,7 +52,17 @@ def create_folders(name):
   pass
 
 def main():
- pass
+  directory = get_images_directory()
+  print(directory)
+  while True:
+    user_confirmation = input("Do you want to proceed? (y/n): ")
+
+    if user_confirmation not in ['y', 'n']:
+      continue
+    else:
+      break
+    
+  
 
  
   
