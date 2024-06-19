@@ -39,14 +39,20 @@ def get_images_directory():
 def get_directory():
   pass
 
-def organize_files(directory):
+def extract_image_data(image):
   pass
+
+def organize_files(directory):
+  # generate the file names in a directory tree by walking the tree either top-down or bottom-up
+  for (root, _ , files) in os.walk(directory):
+    for i, file in enumerate(files):
+      file_path = Path(root) / file
+      extract_image_data(file_path)
+      # print(extract_image_data(file_path))
 
 def error_handler():
   pass
  
-def extract_image_data(image):
-  pass
 
 def create_folders(name):
   pass
@@ -62,7 +68,10 @@ def main():
     else:
       break
     
-  
+  if user_confirmation == 'y':
+    organize_files(directory)
+  else:
+    print("See ya!")
 
  
   
