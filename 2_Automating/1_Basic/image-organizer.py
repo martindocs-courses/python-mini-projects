@@ -9,7 +9,7 @@ def get_images_directory():
   os_home_directory = Path.home() / 'dev/_Pictures' # TEMP folder for development on WSL
 
   # or ask user to specify the directory
-  user_directory = input("Enter full path to the images directory or press ENTER for default home directory (/home/user/Pictures): ")
+  user_directory = input("\nEnter full path to the images directory or press ENTER for default home directory (/home/user/Pictures): ")
   
   is_path_exist = Path(user_directory).exists()
 
@@ -63,7 +63,7 @@ def extract_image_date(img):
     return None
   
   except Exception as error:
-    print(f"Error no metadata found in {img}: {error}")
+    print(f"\nNo metadata found in '{img}'\nError message: {error}")
     return None
 
 
@@ -78,10 +78,10 @@ def organize_files(source_dir, target_dir):
 
       if img_file_path and target_sub_folder:
         target_folder = create_folder(target_dir, target_sub_folder)
-        print(img_file_path)
+        
         shutil.move(img_file_path, target_folder / file)
 
-        print(f"Processing image {i} of {total_files}, Moved: '{file}' to '{target_folder}'")
+        print(f"\nProcessing image {i} of {total_files}, Moved: '{file}' to '{target_folder}'\n")
       else:
         print(f"Skipped image {i} of {total_files}, No metadata found for '{file}'")
     
@@ -90,7 +90,7 @@ def main():
   source_directory = get_images_directory()
   target_directory = get_target_directory() or source_directory
 
-  print(f"Source directory: {source_directory}")
+  print(f"\nSource directory: {source_directory}")
 
   if target_directory != source_directory:
     print(f"Target directory: {target_directory}")
