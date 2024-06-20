@@ -15,19 +15,16 @@ The repository is organized into the following top-level folders:
 - **WebApp**: Projects related to web development, including web applications and APIs.
 - **MobileApp**: Projects for mobile application development using frameworks like Kivy or BeeWare.
 
-Each of these categories contains subfolders for different levels of complexity:
-
-- **Basic**: Introductory projects for beginners.
-- **Intermediate**: Projects that require a moderate level of Python knowledge.
-- **Advanced**: More complex projects that are suitable for advanced users.
-
 ## Projects
 
-### Terminal/Basic
+### Terminal
 
-- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/calculator.py): Calculator that performs basic arithmetic operations with session log history.
-- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/password-generator.py): Password generator with Strength Meter. 
-- [image-organizer.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/1_Basic/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
+- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/calculator.py): Calculator that performs basic arithmetic operations with session log history.
+- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/password-generator.py): Password generator with Strength Meter. 
+
+### Automation
+
+- [image-organizer.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
 
 ## Prerequisites
 
