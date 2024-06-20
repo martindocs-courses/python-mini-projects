@@ -5,7 +5,7 @@ import os
 
 def get_images_directory():
   # get the default user home directory and add path the 'Picture' folder to it
-  os_home_directory = Path.home() / 'Pictures' # TEMP folder for development on WSL
+  os_home_directory = Path.home() / 'dev/_Pictures' # TEMP folder for development on WSL
 
   # or ask user to specify the directory
   user_directory = input("Enter full path to the images directory or press ENTER for default home directory (/home/user/Pictures): ")
@@ -21,6 +21,7 @@ def get_images_directory():
 
   return os_home_directory
 
+
 def get_target_directory():
   user_directory = input("Enter full path to the target directory or press ENTER for the same as source directory: ")
 
@@ -31,18 +32,18 @@ def get_target_directory():
 
   if not is_path_exist:
     print("Please enter a valid existing directory.")
-    return get_images_directory()
+    return get_target_directory()
   
   return None
 
-def get_directory():
-  pass
-  
+
+def create_folder(directory, sub_directory):  
   target_folder = directory / sub_directory
   
   if not target_folder.exists():
     target_folder.mkdir(parents=True) # parents=True - will create the final directory and any missing parent directories along the path.
   return target_folder
+
 
 def extract_image_date(img):
   try:
@@ -63,6 +64,7 @@ def extract_image_date(img):
     print(f"Error no metadata found in {img}: {error}")
     return None
 
+
 def organize_files(source_dir, target_dir):
   # generate the file names in a directory tree by walking the tree either top-down or bottom-up
   for (root, _ , files) in os.walk(source_dir):
@@ -81,6 +83,7 @@ def organize_files(source_dir, target_dir):
       else:
         print(f"Skipped image {i} of {total_files}, No metadata found for '{file}'")
     
+
 def main():
   source_directory = get_images_directory()
   target_directory = get_target_directory() or source_directory
