@@ -6,7 +6,7 @@ import os
 
 def get_images_directory():
   # get the default user home directory and add path the 'Picture' folder to it
-  os_home_directory = Path.home() / 'dev/_Pictures' # TEMP folder for development on WSL
+  os_home_directory = Path.home() / 'Pictures' 
 
   # or ask user to specify the directory
   user_directory = input("\nEnter full path to the images directory or press ENTER for default home directory (/home/user/Pictures): ")
@@ -58,8 +58,8 @@ def extract_image_date(img):
         date = data.get(306)  # DateTime
       
       if date:
-        return date.split(' ')[0].replace(':', '-')
-    
+        return date.split(' ')[0].replace(':', '-')   
+
     return None
   
   except Exception as error:
@@ -68,10 +68,12 @@ def extract_image_date(img):
 
 
 def organize_files(source_dir, target_dir):
-  # generate the file names in a directory tree by walking the tree either top-down or bottom-up
+  total_files = 0
+
+  # generate the file names in a directory tree by walking the tree bottom-up
   for (root, _ , files) in os.walk(source_dir):
     total_files = len(files)
-
+    
     for i, file in enumerate(files, 1):
       img_file_path = Path(root) / file
       target_sub_folder = extract_image_date(img_file_path)
@@ -84,19 +86,18 @@ def organize_files(source_dir, target_dir):
         print(f"\nProcessing image {i} of {total_files}, Moved: '{file}' to '{target_folder}'\n")
       else:
         print(f"Skipped image {i} of {total_files}, No metadata found for '{file}'")
+
+  if total_files == 0:
+    print("\nNo files found\n")
     
 
 def main():
   source_directory = get_images_directory()
   target_directory = get_target_directory() or source_directory
-
+ 
   print(f"\nSource directory: {source_directory}")
-
-  if target_directory != source_directory:
-    print(f"Target directory: {target_directory}")
-  else:
-    print(f"Target directory: {source_directory}")
-
+  print(f"Target directory: {target_directory}")
+  
   while True:
     user_confirmation = input("Do you want to proceed? (y/n): ")
 
