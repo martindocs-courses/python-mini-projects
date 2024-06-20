@@ -8,12 +8,12 @@ This repository serves as a learning tool for my journey with Python. The projec
 
 The repository is organized into the following top-level folders:
 
-- **Terminal**: Projects that run in the command line interface (CLI) and include basic scripts and tools.
-- **Automation**: Projects focused on automating repetitive tasks and processes.
-- **DataProcessing**: Projects dealing with data manipulation, analysis, and visualization.
-- **Games**: Simple to complex games created using Python.
-- **WebApp**: Projects related to web development, including web applications and APIs.
-- **MobileApp**: Projects for mobile application development using frameworks like Kivy or BeeWare.
+- **1_Terminal**: Projects that run in the command line interface (CLI) and include basic scripts and tools.
+- **2_Automation**: Projects focused on automating repetitive tasks and processes.
+- **3_DataProcessing**: Projects dealing with data manipulation, analysis, and visualization.
+- **4_Games**: Simple to complex games created using Python.
+- **5_WebApp**: Projects related to web development, including web applications and APIs.
+- **6_MobileApp**: Projects for mobile application development using frameworks like Kivy or BeeWare.
 
 ## Projects
 
@@ -39,9 +39,9 @@ The repository is organized into the following top-level folders:
    ```
 2. Navigate to the desired folder:
    ```bash
-   cd Terminal/Basic  # For basic projects
+   cd 1_Terminal  # For Terminal based projects
    # or
-   cd WebApp/Intermediate  # For intermediate web application projects
+   cd 5_WebApp  # For web application projects
    # and so on...
    ```
 3. Run the project:
