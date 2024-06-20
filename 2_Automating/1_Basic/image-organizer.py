@@ -3,6 +3,7 @@ from PIL import Image
 import shutil
 import os
 
+
 def get_images_directory():
   # get the default user home directory and add path the 'Picture' folder to it
   os_home_directory = Path.home() / 'dev/_Pictures' # TEMP folder for development on WSL
@@ -60,6 +61,7 @@ def extract_image_date(img):
         return date.split(' ')[0].replace(':', '-')
     
     return None
+  
   except Exception as error:
     print(f"Error no metadata found in {img}: {error}")
     return None
