@@ -1,25 +1,11 @@
-'''
-Desc: Create a script that organizes your image files into folders by the date they were taken, extracting the date from the file metadata.
-
-* User Input for Directory Selection: 
-  - Prompt the user to input the path of the directory containing the images or give default path when press enter
-  - Ask for for path where to move the files or set default as where image are located
-  - Before starting the organization process, ask the user to confirm the action (e.g., "Do you want to organize the images in the directory 'path/to/directory'? (yes/no)").
-* Display Progress: As you process each image, display the progress in the terminal (e.g., "Processing image 1 of 100...").
-* Error Handling: Handle common errors and inform the user (e.g., "Error: No images found in the specified directory").
-
-Libs:
-Pillow, os, shutil
-
-'''
-
 from pathlib import Path
 from PIL import Image
+import shutil
 import os
 
 def get_images_directory():
   # get the default user home directory and add path the 'Picture' folder to it
-  os_home_directory = Path.home() / 'dev/_Pictures' # TEMP folder for development on WSL
+  os_home_directory = Path.home() / 'Pictures' # TEMP folder for development on WSL
 
   # or ask user to specify the directory
   user_directory = input("Enter full path to the images directory or press ENTER for default home directory (/home/user/Pictures): ")
@@ -27,22 +13,42 @@ def get_images_directory():
   is_path_exist = Path(user_directory).exists()
 
   if user_directory and is_path_exist:
-    return user_directory
+    return Path(user_directory)
 
   if not is_path_exist:
-    print("Please enter a existing directory.")
+    print("Please enter a valid existing directory.")
     return get_images_directory()
 
   return os_home_directory
 
+def get_target_directory():
+  user_directory = input("Enter full path to the target directory or press ENTER for the same as source directory: ")
+
+  is_path_exist = Path(user_directory).exists()
+
+  if user_directory and is_path_exist:
+    return Path(user_directory) # treated as Path object, which simplifies path manipulation
+
+  if not is_path_exist:
+    print("Please enter a valid existing directory.")
+    return get_images_directory()
+  
+  return None
 
 def get_directory():
   pass
+  
+  target_folder = directory / sub_directory
+  
+  if not target_folder.exists():
+    target_folder.mkdir(parents=True) # parents=True - will create the final directory and any missing parent directories along the path.
+  return target_folder
 
-def extract_image_data(img):
+def extract_image_date(img):
   try:
     image = Image.open(img)
-    data = image._getexif() # get the image metadata
+    data = image._getexif() # get the image metadata Exif (Exchangeable Image file format)
+    
     if data:
       date = data.get(36867) # DateTimeOriginal
 
@@ -57,24 +63,35 @@ def extract_image_data(img):
     print(f"Error no metadata found in {img}: {error}")
     return None
 
-def organize_files(directory):
+def organize_files(source_dir, target_dir):
   # generate the file names in a directory tree by walking the tree either top-down or bottom-up
-  for (root, _ , files) in os.walk(directory):
-    for i, file in enumerate(files):
-      file_path = Path(root) / file
-      extract_image_data(file_path)
-      # print(extract_image_data(file_path))
+  for (root, _ , files) in os.walk(source_dir):
+    total_files = len(files)
 
-def error_handler():
-  pass
- 
+    for i, file in enumerate(files, 1):
+      img_file_path = Path(root) / file
+      target_sub_folder = extract_image_date(img_file_path)
 
-def create_folders(name):
-  pass
+      if img_file_path and target_sub_folder:
+        target_folder = create_folder(target_dir, target_sub_folder)
+        print(img_file_path)
+        shutil.move(img_file_path, target_folder / file)
 
+        print(f"Processing image {i} of {total_files}, Moved: '{file}' to '{target_folder}'")
+      else:
+        print(f"Skipped image {i} of {total_files}, No metadata found for '{file}'")
+    
 def main():
-  directory = get_images_directory()
-  print(directory)
+  source_directory = get_images_directory()
+  target_directory = get_target_directory() or source_directory
+
+  print(f"Source directory: {source_directory}")
+
+  if target_directory != source_directory:
+    print(f"Target directory: {target_directory}")
+  else:
+    print(f"Target directory: {source_directory}")
+
   while True:
     user_confirmation = input("Do you want to proceed? (y/n): ")
 
@@ -84,12 +101,9 @@ def main():
       break
     
   if user_confirmation == 'y':
-    organize_files(directory)
+    organize_files(source_directory, target_directory)
   else:
-    print("See ya!")
-
- 
-  
+    print("Operation canceled.")
 
 
-main()
+if __name__ == "__main__" : main()
