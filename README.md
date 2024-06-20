@@ -27,6 +27,7 @@ Each of these categories contains subfolders for different levels of complexity:
 
 - [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/calculator.py): Calculator that performs basic arithmetic operations with session log history.
 - [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/1_Basic/password-generator.py): Password generator with Strength Meter. 
+- [image-organizer.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/1_Basic/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
 
 ## Prerequisites
 
