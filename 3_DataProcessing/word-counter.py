@@ -11,7 +11,7 @@ Concepts: Strings, loops, file I/O.
 """
 
 from pathlib import Path
-
+import os
 
 def get_target_folder():
 
@@ -37,10 +37,34 @@ def get_target_folder():
   return os_script_dir
 
 
+def get_file(folder):
+
+  for(root , _ , files) in os.walk(folder, topdown=True):
+    
+    for file in files:
+      file_path = Path(root, file)      
+
+      # if not file.endswith('.py'):        
+      if file.endswith('.py'):        
+        
+        try:          
+          current_file = open(file_path, "r")
+          word_count(current_file.read())
+
+        except Exception as error:
+          print(error)
+
+
+def word_count(file):
+  print(file)
+
+
+
 def main():
   target_dir = get_target_folder()
 
- 
+  if target_dir:
+    get_file(target_dir)
 
 
 
