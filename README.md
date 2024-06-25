@@ -26,6 +26,10 @@ The repository is organized into the following top-level folders:
 
 - [image-organizer.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
 
+### Data Processing
+
+- [word-counter.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/3_DataProcessing/word-counter.py): Count the number of words in a given text. With the option to specify both the source and target folder.
+
 ## Prerequisites
 
   Python 3.x installed on your machine. You can download it from python.org.
