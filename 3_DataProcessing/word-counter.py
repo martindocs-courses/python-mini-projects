@@ -12,7 +12,9 @@ Concepts: Strings, loops, file I/O.
 
 from pathlib import Path
 import os
+import re
 
+# Prompt user for directory or use script directory if none provided.
 def get_target_folder():
 
   # curent working script directory
@@ -37,35 +39,47 @@ def get_target_folder():
   return os_script_dir
 
 
+# Count and print the number of words in the file.
+def word_count(file, name):
+  # matches any non-word character
+  words_list = re.split(r"\W+" , file.read())
+  
+  filter_not_words = [ word for word in words_list if not word.isdigit() and word]
+  count = len(filter_not_words)
+ 
+  print(f"\nWord count for the file '{name}': {str(count)}\n")
+
+
+# Process all files in the given folder and its subdirectories for word count.
 def get_file(folder):
 
-  for(root , _ , files) in os.walk(folder, topdown=True):
+  for(root , _ , files) in os.walk(folder, topdown=True):    
     
     for file in files:
       file_path = Path(root, file)      
+      file_name = file_path.name
 
-      # if not file.endswith('.py'):        
-      if file.endswith('.py'):        
+      if not file_name.endswith('.py'):              
         
         try:          
           current_file = open(file_path, "r")
-          word_count(current_file.read())
+
+          word_count(current_file, file_name)
 
         except Exception as error:
-          print(error)
+          print(f"Error reading file {file_name}: {error}")
+        
+        finally:
+          current_file.close()
 
-
-def word_count(file):
-  print(file)
-
-
+    
+  
 
 def main():
   target_dir = get_target_folder()
 
   if target_dir:
     get_file(target_dir)
-
 
 
 if __name__ == "__main__": main()
