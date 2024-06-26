@@ -54,13 +54,15 @@ def word_count(file, name):
 def get_file(folder):
 
   for(root , _ , files) in os.walk(folder, topdown=True):    
-    
-    for file in files:
-      file_path = Path(root, file)      
-      file_name = file_path.name
-
-      if not file_name.endswith('.py'):              
         
+    non_python_files = [ file for file in files if not file.endswith(".py")]
+
+    if non_python_files:
+
+      for file in non_python_files:
+        file_path = Path(root, file)      
+        file_name = file_path.name             
+          
         try:          
           current_file = open(file_path, "r")
 
@@ -72,7 +74,8 @@ def get_file(folder):
         finally:
           current_file.close()
 
-    
+    else:
+      print("\nNo files found\n")
   
 
 def main():
