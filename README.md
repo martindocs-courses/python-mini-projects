@@ -8,7 +8,7 @@ This repository serves as a learning tool for my journey with Python. The projec
 
 The repository is organized into the following top-level folders:
 
-- **1_Terminal**: Projects that run in the command line interface (CLI) and include basic scripts and tools.
+- **1_Utilities**: Projects that encompass both command-line interface (CLI) tools and scripts, as well as GUI-based applications, designed for practical use and varied functionalities.
 - **2_Automation**: Projects focused on automating repetitive tasks and processes.
 - **3_DataProcessing**: Projects dealing with data manipulation, analysis, and visualization.
 - **4_Games**: Simple to complex games created using Python.
@@ -17,10 +17,10 @@ The repository is organized into the following top-level folders:
 
 ## Projects
 
-### Terminal
+### Utilities
 
-- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/calculator.py): Calculator that performs basic arithmetic operations with session log history.
-- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Terminal/password-generator.py): Password generator with Strength Meter. 
+- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/calculator.py): Calculator that performs basic arithmetic operations with session log history.
+- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/password-generator.py): Password generator with Strength Meter. 
 
 ### Automation
 
