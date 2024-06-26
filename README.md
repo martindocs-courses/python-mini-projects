@@ -14,6 +14,7 @@ The repository is organized into the following top-level folders:
 - **4_Games**: Simple to complex games created using Python.
 - **5_WebApp**: Projects related to web development, including web applications and APIs.
 - **6_MobileApp**: Projects for mobile application development using frameworks like Kivy or BeeWare.
+- **7_Scripting**: Projects specifically involving Bash with Python or JavaScript with Python, focused on automating system tasks, data processing, and cross-language scripting.
 
 ## Projects
 
