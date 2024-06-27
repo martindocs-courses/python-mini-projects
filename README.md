@@ -29,7 +29,7 @@ The repository is organized into the following top-level folders:
 
 ### Data Processing
 
-- [word-counter.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/3_DataProcessing/word-counter.py): Count the number of words in a given folder for all files. With the option to specify both the source and target folder.
+- [word-counter.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/3_DataProcessing/word-counter.py): Count the number of words in a given folder for all files. With the option to specify the target folder.
 
 ## Prerequisites
 
