@@ -12,3 +12,12 @@ Steps:
 Concepts: Networking, file I/O, Scheduling, Security
 
 """
+
+from stmp_server import server
+
+def main():
+  ser = server()
+  print(ser)
+
+
+if __name__ == "__main__": main()
