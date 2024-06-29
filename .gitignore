@@ -1,4 +1,7 @@
-# 2_AUTOMATING
+# 1_UTILITIES
+1_Utilities/file-rename-with-undo/.venv/
+
+# 2_AUTOMATING 
 # Email sender
 2_Automating/email-sender-with-scheduling/__pycache__
 2_Automating/email-sender-with-scheduling/.venv
