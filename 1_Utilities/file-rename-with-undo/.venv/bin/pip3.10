@@ -1,8 +1,0 @@
-#!/home/hal9000/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/.venv/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from pip._internal.cli.main import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
