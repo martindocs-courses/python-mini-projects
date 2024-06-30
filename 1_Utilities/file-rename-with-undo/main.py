@@ -23,20 +23,31 @@ def main():
       "Rename Files", 
       "List Logs", 
       "Undo Rename", 
-      Choice(value=None, name="Exit")
+      Choice(value = None, name = "Exit")
     ],
     default = 1
   ).execute()
 
+  # Defult root directory for Unix and Windows systems
   home_path = "~/" if os.name == "posix" else "C:\\"
 
   if action == "Rename Files":
     rename_action = inquirer.filepath(
-      message="Enter the directory containing files to rename:",
-      default=home_path,
-      validate=PathValidator(is_dir=True, message="Input is not a directory"),
-      only_directories=True,
+      message = "Enter the directory containing files to rename:",
+      default = home_path,
+      validate = PathValidator(is_dir=True, message="Input is not a directory"),
+      only_directories =  True,
     ).execute()
+
+    prefix_action = inquirer.text(
+      message = "Enter the prefix to add to file names: ",
+      validate = lambda txt : len(txt) > 0,
+      invalid_message = "Prefix cannot be empty" 
+    ).execute()
+
+    # pass values: rename_action and prefix_action to Reanme method
+
+ 
 
 if __name__ == "__main__": main()
 
