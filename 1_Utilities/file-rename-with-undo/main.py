@@ -11,9 +11,12 @@ Steps:
 Concepts: file I/O, data structures, error handling, libs
 """
 import os
+from pathlib import Path
 from InquirerPy import inquirer
 from InquirerPy.validator import PathValidator
 from InquirerPy.base.control import Choice
+
+from rename import rename_files, rename_undo
 
 def main():
 
@@ -28,13 +31,17 @@ def main():
     default = 1
   ).execute()
 
-  # Defult root directory for Unix and Windows systems
-  home_path = "~/" if os.name == "posix" else "C:\\"
+  # Directory where the script resides.
+  # default_path = Path(__file__).resolve().parent
+
+  # Home path
+  home_path = Path.home()
+  
 
   if action == "Rename Files":
     rename_action = inquirer.filepath(
       message = "Enter the directory containing files to rename:",
-      default = home_path,
+      default = str(home_path),
       validate = PathValidator(is_dir=True, message="Input is not a directory"),
       only_directories =  True,
     ).execute()
@@ -44,10 +51,15 @@ def main():
       validate = lambda txt : len(txt) > 0,
       invalid_message = "Prefix cannot be empty" 
     ).execute()
+        
+    rename_files(rename_action, prefix_action)
 
-    # pass values: rename_action and prefix_action to Reanme method
+  elif action == "List Logs":
+    pass
 
- 
+  elif action == "Undo Rename":
+    pass
+   
 
 if __name__ == "__main__": main()
 
