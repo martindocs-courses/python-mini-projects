@@ -1,11 +1,12 @@
 import os
 from datetime import datetime
+from logs import load_logs, save_logs
 
 def rename_files(dir, prefix):
   
   target_files = os.listdir(dir)  
   timestamp = datetime.now().strftime("%Y-%m-%d %H-%M-%S") # example 2024-07-01 21-43-50
-  rename_log = {} # load logs method
+  rename_log = load_logs() 
   
   show_example = []
   file_mappings = {}
@@ -26,8 +27,7 @@ def rename_files(dir, prefix):
 
   show_example.append({
     "new": new_file_path, 
-    "old": old_file_path}
-  )
+    "old": old_file_path})
   
   rename_log[timestamp] = {
     "summary": {
@@ -38,10 +38,8 @@ def rename_files(dir, prefix):
     },
     "files": file_mappings
   }
-
-  print(rename_log)
-
-  # method for save_logs
+  # print(rename_log)
+  save_logs(rename_log)
 
   print(f"Renamed {len(target_files)} files.")
 
