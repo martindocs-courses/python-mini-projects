@@ -17,7 +17,7 @@ from InquirerPy.validator import PathValidator
 from InquirerPy.base.control import Choice
 
 from rename import rename_files, rename_undo
-from logs import list_logs
+from logs import list_logs, load_logs
 
 def main():
 
@@ -63,7 +63,18 @@ def main():
         print(log)   
 
   elif action == "Undo Rename":
-    pass
+    logs = load_logs()
+
+    if logs:
+      log_chices = logs.keys()
+
+      undo_choices = inquirer.rawlist(
+        message = "Select the timestamp of the rename operation to undo:",
+        choices = log_chices, 
+        default = 1
+      ).execute()
+      
+      rename_undo(undo_choices) 
    
 
 if __name__ == "__main__": main()

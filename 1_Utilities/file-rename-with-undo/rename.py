@@ -38,15 +38,28 @@ def rename_files(dir, prefix):
     },
     "files": file_mappings
   }
-  # print(rename_log)
+ 
   save_logs(rename_log)
 
   print(f"\nRenamed {len(target_files)} files.\n")
 
 
 def rename_undo(timestamp):
-  pass
+  logs = load_logs()
 
+  if timestamp in logs:
+    for new_file_path, old_file_path in logs[timestamp]['files'].items():
+
+      if os.path.exists(new_file_path):
+        os.rename(new_file_path, old_file_path)
+    
+    del logs[timestamp]
+
+    save_logs(logs)
+    print(f"\nRenamed files for {timestamp} have been successfully undone.\n")
+
+  else:
+    print(f"\nNo logs found for {timestamp}.\n")
 
 if __name__ == '__main__': 
   # No invocation here, purely for imports
