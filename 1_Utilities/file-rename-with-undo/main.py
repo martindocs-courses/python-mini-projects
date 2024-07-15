@@ -17,6 +17,7 @@ from InquirerPy.validator import PathValidator
 from InquirerPy.base.control import Choice
 
 from rename import rename_files, rename_undo
+from logs import list_logs
 
 def main():
 
@@ -55,7 +56,11 @@ def main():
     rename_files(rename_action, prefix_action)
 
   elif action == "List Logs":
-    pass
+    logs = list_logs()
+
+    if logs:
+      for log in logs:
+        print(log)   
 
   elif action == "Undo Rename":
     pass
