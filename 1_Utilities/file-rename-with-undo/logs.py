@@ -28,9 +28,10 @@ def list_logs():
       log_entry = f"\n{timestamp} - {summary['file_count']} files renamed:\nTarget folder: {summary['directory']} \nWith prefix: '{summary['prefix']}'." 
 
       for example in summary['example']:
-        log_entry += f"\n\nExample: \nOld: {example['old']} \nNew: {example['new']}\n"
+        log_entry += f"\nExample: \nOld: {example['old']} \nNew: {example['new']}\n"
       
       log_list.append(log_entry)
+
   return log_list      
 
 
