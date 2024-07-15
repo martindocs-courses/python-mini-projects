@@ -1,0 +1,19 @@
+{
+    "2024-07-15 13-55-13": {
+        "summary": {
+            "directory": "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/",
+            "prefix": "test_",
+            "file_count": 2,
+            "example": [
+                {
+                    "new": "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/test_names2.txt",
+                    "old": "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/names2.txt"
+                }
+            ]
+        },
+        "files": {
+            "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/test_names1.txt": "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/names1.txt",
+            "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/test_names2.txt": "/home/hal9000/Documents/dev/_Python/Practice/mini-projects/1_Utilities/file-rename-with-undo/test_folder/names2.txt"
+        }
+    }
+}

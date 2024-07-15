@@ -41,7 +41,7 @@ def rename_files(dir, prefix):
   # print(rename_log)
   save_logs(rename_log)
 
-  print(f"Renamed {len(target_files)} files.")
+  print(f"\nRenamed {len(target_files)} files.\n")
 
 
 def rename_undo(timestamp):
