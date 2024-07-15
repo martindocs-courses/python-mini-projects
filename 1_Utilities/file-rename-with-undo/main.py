@@ -21,6 +21,7 @@ from logs import list_logs, load_logs
 
 def main():
 
+  # main menu
   action = inquirer.rawlist(
     message = "What would you like to do?",
     choices = [
@@ -32,10 +33,7 @@ def main():
     default = 1
   ).execute()
 
-  # Directory where the script resides.
-  # default_path = Path(__file__).resolve().parent
-
-  # Home path
+  # Home path directory
   home_path = Path.home()
   
 
