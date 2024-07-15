@@ -20,16 +20,17 @@ The repository is organized into the following top-level folders:
 
 ### Utilities
 
-- [calculator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/calculator.py): Calculator that performs basic arithmetic operations with session log history.
-- [password-generator.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/password-generator.py): Password generator with Strength Meter. 
+- [calculator](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/calculator.py): Calculator that performs basic arithmetic operations with session log history.
+- [password-generator](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/password-generator.py): Password generator with Strength Meter. 
+- [file-rename](https://github.com/martindocs-courses/python-mini-projects/blob/main/1_Utilities/file-rename-with-undo/main.py): File rename utility with options to show history log of renamed files and to undo renames.
 
 ### Automation
 
-- [image-organizer.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
+- [image-organizer](https://github.com/martindocs-courses/python-mini-projects/blob/main/2_Automating/image-organizer.py): Image organizer with the option to specify both the source and target folder for organizing images.
 
 ### Data Processing
 
-- [word-counter.py](https://github.com/martindocs-courses/python-mini-projects/blob/main/3_DataProcessing/word-counter.py): Count the number of words in a given folder for all files. With the option to specify the target folder.
+- [word-counter](https://github.com/martindocs-courses/python-mini-projects/blob/main/3_DataProcessing/word-counter.py): Count the number of words in a given folder for all files. With the option to specify the target folder.
 
 ## Prerequisites
 
